@@ -18,7 +18,7 @@ export default function Home() {
           content="Search GitHub users and view their repositories and README content easily."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/vercel.svg" />
       </Head>
       <div className={isDarkMode ? "dark" : "light"}>
         <Header />
