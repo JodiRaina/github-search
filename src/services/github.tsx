@@ -4,10 +4,12 @@ export async function fetchRepos(username: string) {
   return res.json();
 }
 
-export async function fetchReadme(fullName: string) {
+export async function fetchReadme(fullName: string): Promise<string> {
   const res = await fetch(`https://api.github.com/repos/${fullName}/readme`, {
     headers: { Accept: "application/vnd.github.VERSION.raw" },
   });
   if (!res.ok) throw new Error("Failed to fetch README");
-  return res.text();
+
+  const text = await res.text();
+  return text;
 }

@@ -21,7 +21,7 @@ export default function RepoList() {
     setSelectedRepo(repo);
     try {
       const readme = await fetchReadme(repo.full_name);
-      const html = markdownToHtml(await readme);
+      const html = markdownToHtml(readme);
       setReadme(html);
     } catch {
       setReadme("<p>No README found.</p>");
