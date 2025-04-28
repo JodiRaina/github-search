@@ -3,6 +3,12 @@ import { useAppStore } from "../store/useAppStore";
 import { fetchReadme } from "../services/github";
 import { markdownToHtml } from "../utils/markdownToHtml";
 
+interface Repo {
+  id: number;
+  name: string;
+  full_name: string;
+}
+
 export default function RepoList() {
   const repos = useAppStore((state) => state.repos);
   const setSelectedRepo = useAppStore((state) => state.setSelectedRepo);
@@ -10,14 +16,14 @@ export default function RepoList() {
   const isLoading = useAppStore((state) => state.isLoading);
   const setLoading = useAppStore((state) => state.setLoading);
 
-  const handleSelect = async (repo: any) => {
+  const handleSelect = async (repo: Repo) => {
     setLoading(true);
     setSelectedRepo(repo);
     try {
       const readme = await fetchReadme(repo.full_name);
       const html = markdownToHtml(readme);
       setReadme(html);
-    } catch (error) {
+    } catch (error: Error) {
       setReadme("<p>No README found.</p>");
     } finally {
       setLoading(false);

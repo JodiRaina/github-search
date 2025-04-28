@@ -22,7 +22,7 @@ export default function SearchBar() {
         if (repos.length > 0) {
           setProfile(repos[0].owner);
         }
-      } catch (error) {
+      } catch (error: Error) {
         alert("Error fetching repositories.");
       } finally {
         setLoading(false);
