@@ -23,7 +23,7 @@ export default function RepoList() {
       const readme = await fetchReadme(repo.full_name);
       const html = markdownToHtml(readme);
       setReadme(html);
-    } catch (error: Error) {
+    } catch {
       setReadme("<p>No README found.</p>");
     } finally {
       setLoading(false);
