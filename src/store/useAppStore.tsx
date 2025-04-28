@@ -12,6 +12,8 @@ interface AppState {
   selectedRepo: Repo | null;
   readme: string;
   isLoading: boolean;
+  profile: object;
+  isDarkMode: boolean;
   setUsername: (username: string) => void;
   setRepos: (repos: Repo[]) => void;
   setSelectedRepo: (repo: Repo) => void;
@@ -28,6 +30,7 @@ export const useAppStore = create<AppState>((set) => ({
   readme: "",
   isLoading: false,
   profile: {},
+  isDarkMode: false,
   setProfile: (profile) => set({ profile }),
   setUsername: (username) => set({ username }),
   setRepos: (repos) => set({ repos }),
