@@ -1,0 +1,233 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #cfd9df 0%, #e2ebf0 100%);
+  color: #333;
+  transition: background 0.5s, color 0.5s;
+}
+
+.dark body {
+  background: linear-gradient(135deg, #1f1c2c 0%, #928dab 100%);
+  color: #f5f5f5;
+}
+
+.container {
+  flex: 1;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+.search-bar {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 8px;
+  font-size: 16px;
+}
+
+.search-bar button {
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.repo-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.repo-list li {
+  padding: 8px;
+  margin: 4px 0;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.repo-list li:hover {
+  background-color: #d0d0d0;
+}
+
+.readme-viewer {
+  margin-top: 2rem;
+}
+
+.readme-viewer div {
+  background-color: #fafafa;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  
+.loading-spinner {
+    margin: 20px auto;
+    border: 4px solid #ccc;
+    border-top: 4px solid #333;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    animation: spin 1s linear infinite;
+}
+
+button {
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #005bb5;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.error-input {
+  color: red;
+  font-size: 12;
+}
+
+.dark-mode-btn {
+  background: transparent;
+  border: 1px solid #333;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  color: black;
+}
+
+.dark-mode-btn:hover {
+  background-color: rgba(0,0,0,0.1);
+}
+
+.dark {
+  background: linear-gradient(135deg, #1f1c2c 0%, #928dab 100%);
+  color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.light {
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.dark .header {
+  background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+}
+
+.dark .dark-mode-btn {
+  border-color: white;
+  color: white;
+}
+
+.dark .search-bar input {
+  background-color: #444;
+  color: white;
+  border: 1px solid #666;
+}
+
+.dark .repo-list li {
+  background-color: #444;
+  color: white;
+}
+
+.dark .readme-viewer div {
+  background-color: #333;
+}
+
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #e2ebf0;
+  font-size: 14px;
+}
+
+.footer-dark {
+  background-color: #1f1c2c;
+  color: #f5f5f5;
+}
+
+body > div {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 1rem;
+    width: 90%;
+  }
+
+  .search-bar {
+    flex-direction: column;
+  }
+
+  .search-bar button {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .repo-list li {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .readme-viewer {
+    font-size: 14px;
+  }
+
+  h1, h2 {
+    font-size: 20px;
+  }
+}
